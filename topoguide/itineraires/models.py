@@ -18,7 +18,10 @@ class Itineraire(models.Model):
     altitude_max = models.IntegerField('Altitude maximale')
     denivele_pos = models.IntegerField('Denivelé positif cumulé')
     denivele_neg = models.IntegerField('Denivelé negatif cumulé')
-    duree = models.TimeField('Durée estimée',auto_now=False, auto_now_add=False)
+    duree = models.DurationField('Durée estimée')
     difficulte = models.IntegerField('Difficulté estimée', choices = CHOIX_DIFFICULTE)
+    
+    def __str__(self):
+        return self.nom
     
     
