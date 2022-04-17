@@ -12,9 +12,9 @@ class Itineraire(models.Model):
     
     nom = models.CharField('Nom',max_length=200)
     p_dep = models.CharField('Point de départ',max_length=200)
-    description = models.CharField('Description de la sortie',max_length=3000)
+    description = models.TextField('Description de la sortie')
     alt_dep = models.IntegerField('Altitude de départ')
-    altitude_mim = models.IntegerField('Altitude minimale')
+    altitude_min = models.IntegerField('Altitude minimale')
     altitude_max = models.IntegerField('Altitude maximale')
     denivele_pos = models.IntegerField('Denivelé positif cumulé')
     denivele_neg = models.IntegerField('Denivelé negatif cumulé')
