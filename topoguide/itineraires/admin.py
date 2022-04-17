@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from .models import Itinineraire
+from .models import Itineraire
 
-admin.site.register(Itinineraire)
+admin.site.register(Itineraire)

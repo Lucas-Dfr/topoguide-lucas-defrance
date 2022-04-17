@@ -1,6 +1,6 @@
 from django.db import models
 
-class Itinineraire(models.Model):
+class Itineraire(models.Model):
     
     CHOIX_DIFFICULTE = [
         (1,'1 - Très facile'),
