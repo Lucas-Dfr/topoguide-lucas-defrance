@@ -52,8 +52,7 @@ class Sortie(models.Model):
     itineraire = models.ForeignKey('Itineraire', on_delete=models.CASCADE)
     date = models.DateField("Date de la sortie")
     duree_reelle = models.DurationField('Durée réelle de la sortie')
-    nb_personnes = models.IntegerField('Nombre de personnes ayant participé à la sortie',default=1)
+    nb_personnes = models.PositiveIntegerField('Nombre de personnes ayant participé à la sortie',default=1)
     experience = models.CharField("Experience du groupe", max_length=50 ,choices = CHOIX_EXPERIENCE)
     meteo = models.CharField(max_length=50,choices = CHOIX_METEO)
     difficulte = models.IntegerField('Difficulté ressentie', choices = CHOIX_DIFFICULTE)
-    
