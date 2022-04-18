@@ -1,0 +1,26 @@
+<!DOCTYPE>
+<html>
+<style>
+table, th, td {
+    border:1px solid black;
+}
+</style>
+<body>
+
+<h1>Sorties {{ iti.nom }}</h1>
+
+<table style="width:100%">
+    <tr>
+        <th>Par</th>
+        <th>Date</th>
+        <th></th>
+    </tr>
+    {% for excursion in excursions_list %}
+    <tr>
+        <td>{{ excursion.utilisateur }}</td>
+        <td>{{ excursion.date }}</td>
+        <td><button onclick="document.location='default.asp'">Consulter</button></td>
+    </tr>
+    {% endfor %}
+</body>
+</html>
