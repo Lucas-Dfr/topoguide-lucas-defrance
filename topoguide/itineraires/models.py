@@ -23,5 +23,36 @@ class Itineraire(models.Model):
     
     def __str__(self):
         return self.nom
+
+class Sortie(models.Model):
     
+    CHOIX_EXPERIENCE = [
+        ('Tous débutants','Tous débutants'),
+        ('Groupe mixte','Groupe mixte'),
+        ('Tous expérimentés','Tous expérimentés'),
+    ]
+    
+    CHOIX_METEO = [
+        ('Mauvaise','Mauvaise'),
+        ('Moyenne','Moyenne'),
+        ('Bonne','Bonne'),
+    ]
+    
+    CHOIX_DIFFICULTE = [
+        (1,'1 - Très facile'),
+        (2,'2 - Facile'),
+        (3,'3 - Modérée'),
+        (4,'4 - Difficile'),
+        (5, '5 - Très difficile'),
+    ]
+    
+    
+    utilisateur = models.ForeignKey('User', on_delete=models.CASCADE)
+    itineraire = models.ForeignKey('Itineraire', on_delete=models.CASCADE)
+    date = models.DateField("Date de la sortie")
+    duree_reelle = models.DurationField('Durée réelle de la sortie')
+    nb_personnes = models.IntegerField('Nombre de personnes ayant participé à la sortie',default=1)
+    experience = models.CharField("Experience du groupe", choices = CHOIX_EXPERIENCE)
+    meteo = models.CharField(choices = CHOIX_METEO)
+    difficulte = models.IntegerField('Difficulté ressentie', choices = CHOIX_DIFFICULTE)
     
