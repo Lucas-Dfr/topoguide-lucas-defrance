@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <style>
+table, th, td {
+    border:1px solid black;
+}
 </style>
 <body>
 
@@ -9,14 +12,29 @@
 <table style="width:100%">
     <tr>
         <th>Nom</th>
-        <th>Durée estimée</th>
+        <th>Durée estimée (hh:mm:ss)</th>
         <th>Difficulté estimée</th>
+        <th>Point de départ</th>
+        <th>Altitude de départ</th>
+        <th>Altitude minimale</th>
+        <th>Altitude maximale</th>
+        <th>Dénivelé positif cumulé</th>
+        <th>Dénivelé négatif cumulé</th>
+
+
+
     </tr>
     {% for itinerary in itineraries_list %}
         <tr>
             <td>{{ itinerary.nom }}</td>
             <td>{{ itinerary.duree }}</td>
             <td>{{ itinerary.difficulte }}/5</td>
+            <td>{{ itinerary.p_dep }}</td>
+            <td>{{ itinerary.alt_dep }}m</td>
+            <td>{{ itinerary.altitude_min }}m</td>
+            <td>{{ itinerary.altitude_max }}m</td>
+            <td>{{ itinerary.denivele_pos }}m</td>
+            <td>{{ itinerary.denivele_neg }}m</td>
         </tr>
     {% endfor %}
  </table>
