@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Itineraire(models.Model):
     
@@ -47,12 +48,12 @@ class Sortie(models.Model):
     ]
     
     
-    utilisateur = models.ForeignKey('User', on_delete=models.CASCADE)
+    utilisateur = models.ForeignKey(User, on_delete=models.CASCADE)
     itineraire = models.ForeignKey('Itineraire', on_delete=models.CASCADE)
     date = models.DateField("Date de la sortie")
     duree_reelle = models.DurationField('Durée réelle de la sortie')
     nb_personnes = models.IntegerField('Nombre de personnes ayant participé à la sortie',default=1)
-    experience = models.CharField("Experience du groupe", choices = CHOIX_EXPERIENCE)
-    meteo = models.CharField(choices = CHOIX_METEO)
+    experience = models.CharField("Experience du groupe", max_length=50 ,choices = CHOIX_EXPERIENCE)
+    meteo = models.CharField(max_length=50,choices = CHOIX_METEO)
     difficulte = models.IntegerField('Difficulté ressentie', choices = CHOIX_DIFFICULTE)
     
