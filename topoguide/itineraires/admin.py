@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Itineraire
+from .models import Itineraire, Sortie
 
 class ItineraireAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -9,3 +9,8 @@ class ItineraireAdmin(admin.ModelAdmin):
     ]
 
 admin.site.register(Itineraire, ItineraireAdmin)
+
+class SortieAdmin(admin.ModelAdmin):
+    list_display = ('utilisateur','itineraire', 'date')
+
+admin.site.register(Sortie, SortieAdmin)
