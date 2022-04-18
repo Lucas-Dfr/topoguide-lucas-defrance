@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<style>
+</style>
+<body>
+
+<h1>Itinéraires</h1>
+
+<table style="width:100%">
+    <tr>
+        <th>Nom</th>
+        <th>Durée estimée</th>
+        <th>Difficulté estimée</th>
+    </tr>
+    {% for itinerary in itineraries_list %}
+        <tr>
+            <td>{{ itinerary.nom }}</td>
+            <td>{{ itinerary.duree }}</td>
+            <td>{{ itinerary.difficulte }}/5</td>
+        </tr>
+    {% endfor %}
+ </table>
+
+</body>
+</html>
