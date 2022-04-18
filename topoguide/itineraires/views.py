@@ -15,4 +15,9 @@ def liste_sorties(request,itineraire_id):
     exursions_list = Sortie.objects.filter(itineraire = iti)
     context = {'excursions_list' : exursions_list, 'iti' : iti}
     return render(request,'itineraires/sorties.html',context)
+
+def detail_sortie(request,sortie_id):
+    sortie = Sortie.objects.get(pk=sortie_id)
+    context = {'sortie' : sortie}
+    return render(request,'itineraires/detail_sortie.html',context)
      

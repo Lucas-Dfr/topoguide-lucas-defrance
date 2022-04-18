@@ -1,0 +1,16 @@
+<!DOCTYPE>
+<html>
+<style>
+</style>
+<body>
+
+<h1><a href="http://127.0.0.1:8000/sorties/{{ sortie.itineraire.id }}/">{{ sortie.itineraire.nom }}</a> - Sortie de {{ sortie.utilisateur }}</h1>
+
+<p>Date : {{ sortie.date }}</p>
+<p>Durée réelle : {{ sortie.duree_reelle }}</p>
+<p>Nombre de participants : {{ sortie.nb_personnes }}</p>
+<p>Météo : {{ sortie.meteo }}</p>
+<p>Difficulté ressentie : {{ sortie.difficulte }}/5</p>
+
+</body>
+</html>
