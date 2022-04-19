@@ -19,7 +19,7 @@ table, th, td {
     <tr>
         <td>{{ excursion.utilisateur }}</td>
         <td>{{ excursion.date }}</td>
-        <td><button onclick="document.location='default.asp'">Consulter</button></td>
+        <td><button onclick="document.location='http://127.0.0.1:8000/topoguide/sortie/{{ excursion.id }}'">Consulter</button></td>
     </tr>
     {% endfor %}
 </body>
