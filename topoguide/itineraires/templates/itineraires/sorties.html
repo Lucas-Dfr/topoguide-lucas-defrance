@@ -1,29 +1,28 @@
-<!DOCTYPE>
-<html>
-<style>
-table, th, td {
-    border:1px solid black;
-}
-</style>
-<body>
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block title %}Liste des sorties{% endblock title%}
+
+{% block content %}
 
 <h1>Sorties {{ iti.nom }}</h1>
 
-<table style="width:100%">
-    <tr>
-        <th>Par</th>
-        <th>Date</th>
-        <th></th>
-    </tr>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Par</th>
+            <th scope="col">Date</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
     {% for excursion in excursions_list %}
     <tr>
-        <td>{{ excursion.utilisateur }}</td>
+        <th scope="row">{{ excursion.utilisateur }}</td>
         <td>{{ excursion.date }}</td>
-        <td><button onclick="document.location='{% url 'itineraires:sortie_detail' excursion.id %}'">Consulter</button></td>
+        <td><button onclick="document.location='{% url 'itineraires:sortie_detail' excursion.id %}'" type="button" class="btn btn-outline-primary">Consulter</button></td>
     </tr>
     {% endfor %}
+    </tbody>
 
-<p><a href="{% url 'logout' %}">Log Out</a></p>
-
-</body>
-</html>
+    {% endblock content %}

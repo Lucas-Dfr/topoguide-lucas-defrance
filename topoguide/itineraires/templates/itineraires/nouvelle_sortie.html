@@ -1,8 +1,9 @@
-<!DOCTYPE>
-<html>
-<style>
-</style>
-<body>
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block title %}Ajout d'une nouvelle sortie{% endblock title%}
+
+{% block content %}
 
 <h1>Nouvelle sortie<h1>
 
@@ -13,7 +14,6 @@
     <input type="submit" value="Submit">
 </form>
 
+{% endblock content%}
+
     
-<p><a href="{% url 'logout' %}">Log Out</a></p>
-</body>
-</html>
