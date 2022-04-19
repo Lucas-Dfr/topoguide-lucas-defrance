@@ -26,7 +26,7 @@ table, th, td {
     </tr>
     {% for itinerary in itineraries_list %}
         <tr>
-            <td>{{ itinerary.nom }}</td>
+            <td><a href="http://127.0.0.1:8000/topoguide/sorties/{{ itinerary.id }}">{{ itinerary.nom }}</a></td>
             <td>{{ itinerary.duree }}</td>
             <td>{{ itinerary.difficulte }}/5</td>
             <td>{{ itinerary.p_dep }}</td>
