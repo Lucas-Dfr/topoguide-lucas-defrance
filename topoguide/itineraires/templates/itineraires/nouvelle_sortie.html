@@ -1,0 +1,19 @@
+<!DOCTYPE>
+<html>
+<style>
+</style>
+<body>
+
+<h1>Nouvelle sortie<h1>
+
+
+<form action="name " method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form>
+
+    
+<p><a href="{% url 'logout' %}">Log Out</a></p>
+</body>
+</html>
