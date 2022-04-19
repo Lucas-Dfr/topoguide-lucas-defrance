@@ -8,10 +8,11 @@
 <h1>Nouvelle sortie<h1>
 
 
-<form action="name " method="post">
+<form action="{% url 'itineraires:sortie_new' %} " method="post" class="form">
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit">
+    {% bootstrap_form form %}
+        <button type="submit" class="btn btn-primary">Add</button>
+        <a href="{% url 'itineraires:itineraires_liste' %}" class="btn btn-primary">Cancel</a>
 </form>
 
 {% endblock content%}
