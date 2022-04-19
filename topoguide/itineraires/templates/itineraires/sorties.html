@@ -22,5 +22,8 @@ table, th, td {
         <td><button onclick="document.location='http://127.0.0.1:8000/topoguide/sortie/{{ excursion.id }}'">Consulter</button></td>
     </tr>
     {% endfor %}
+
+<p><a href="{% url 'logout' %}">Log Out</a></p>
+
 </body>
 </html>
