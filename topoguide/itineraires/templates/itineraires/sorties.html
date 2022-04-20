@@ -20,9 +20,14 @@
     <tr>
         <th scope="row">{{ excursion.utilisateur }}</td>
         <td>{{ excursion.date }}</td>
-        <td><button onclick="document.location='{% url 'itineraires:sortie_detail' excursion.id %}'" type="button" class="btn btn-outline-primary">Consulter</button></td>
+        <td><button onclick="document.location='{% url 'itineraires:sortie_detail' excursion.id %}'" type="button" class="btn btn-outline-success">Consulter</button></td>
     </tr>
     {% endfor %}
+    <tr>
+        <td></td>
+        <td class="text-center"><button onclick="document.location='{% url 'itineraires:sortie_new' %}'" type="button" class="btn btn-outline-warning">+</button></td>
+        <td></td>
+    </tr>
     </tbody>
 
     {% endblock content %}

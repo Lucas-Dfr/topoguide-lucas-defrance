@@ -24,7 +24,7 @@
     <tbody>
     {% for itinerary in itineraries_list %}
       <tr>
-        <th scope="row"><a href="{% url 'itineraires:sorties_liste' itinerary.id %}">{{ itinerary.nom }}</a></th>
+        <th scope="row"><a class="link-success" href="{% url 'itineraires:sorties_liste' itinerary.id %}">{{ itinerary.nom }}</a></th>
         <td>{{ itinerary.duree }}</td>
         <td>{{ itinerary.difficulte }}/5</td>
         <td>{{ itinerary.p_dep }}</td>
