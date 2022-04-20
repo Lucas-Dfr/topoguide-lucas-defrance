@@ -14,12 +14,25 @@
     {% bootstrap_messages %}
     <title>{% block title %}Topoguide{% endblock %}</title>
 </head>
+<style>
+
+</style>
 
 <body>
+    {# <h1 class="p-2 mb-2 bg-success text-white display-5" >Topoguide</h1> #}
+    {# <button onclick="document.location='{% url 'logout' %}'" type="button" class="btn btn-outline-danger">Log out</button> #}
+
+    <nav class="navbar navbar-success bg-success">
+        <div class="container-fluid">
+            
+            <a class="navbar-brand text-white" href="{% url 'itineraires:itineraires_liste' %}">
+                Topoguide
+            </a>
+            <button onclick="document.location='{% url 'logout' %}'" type="button" class="btn btn-outline-light">Log out</button>
+        </div>
+      </nav>
 
         {% block content %}{% endblock %}
-
-        <button onclick="document.location='{% url 'logout' %}'" type="button" class="btn btn-outline-primary">Log out</button>
 
 </body>
 </html>
