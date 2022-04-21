@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -125,5 +126,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 LOGOUT_REDIRECT_URL = 'http://127.0.0.1:8000/accounts/login/'
-LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/topoguide/'
+LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/'
  

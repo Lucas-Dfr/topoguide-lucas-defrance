@@ -1,10 +1,11 @@
-<!DOCTYPE>
-<html>
-<style>
-</style>
-<body>
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
 
-<h1><a href="http://127.0.0.1:8000/topoguide/sorties/{{ sortie.itineraire.id }}/">{{ sortie.itineraire.nom }}</a> - Sortie de {{ sortie.utilisateur }}</h1>
+{% block title %}Détail d'une sortie{% endblock title%}
+
+{% block content %}
+
+<h1><a class="link-success" href="{% url 'itineraires:sorties_liste' sortie.itineraire.id %}">{{ sortie.itineraire.nom }}</a> - Sortie de {{ sortie.utilisateur }}</h1>
 
 <p>Date : {{ sortie.date }}</p>
 <p>Durée réelle : {{ sortie.duree_reelle }}</p>
@@ -12,7 +13,4 @@
 <p>Météo : {{ sortie.meteo }}</p>
 <p>Difficulté ressentie : {{ sortie.difficulte }}/5</p>
 
-<p><a href="{% url 'logout' %}">Log Out</a></p>
-
-</body>
-</html>
+{% endblock content %}

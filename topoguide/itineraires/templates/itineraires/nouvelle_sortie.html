@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block title %}Ajout d'une nouvelle sortie{% endblock title%}
+
+{% block content %}
+
+<h1>Nouvelle sortie</h1>
+
+
+<form action="{% url 'itineraires:sortie_new' %} " method="POST" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+        <button type="submit" class="btn btn-primary">Add</button>
+        <a href="{% url 'itineraires:itineraires_liste' %}" class="btn btn-primary">Cancel</a>
+</form>
+
+{% endblock content%}
+
+    
