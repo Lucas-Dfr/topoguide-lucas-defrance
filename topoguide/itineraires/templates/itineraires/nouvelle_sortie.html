@@ -12,7 +12,7 @@
     {% csrf_token %}
     {% bootstrap_form form %}
         <button type="submit" class="btn btn-success">Add</button>
-        <a href="{% url 'itineraires:itineraires_liste' %}" class="btn btn-success">Cancel</a>
+        <a href="{% url 'itineraires:itineraires_liste' %}" class="btn btn-warning">Cancel</a>
 </form>
 
 {% endblock content%}
