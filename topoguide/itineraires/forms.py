@@ -1,13 +1,13 @@
 from django.forms import ModelForm
 from itineraires.models import Sortie, Itineraire
 from django.utils.translation import gettext_lazy as _
+from django import forms
 
 class ExcursionForm(ModelForm):
     class Meta:
         model = Sortie
-        fields = ['utilisateur', 'itineraire', 'date', 'duree_reelle', 'nb_personnes', 'experience', 'meteo', 'difficulte']
+        fields = ['itineraire', 'date', 'duree_reelle', 'nb_personnes', 'experience', 'meteo', 'difficulte']
         labels = {
-            'utilisateur': _('Par'),
             'itineraire': _('Itinéraire'),
             'date': _('Date de la sortie'),
             'duree_reelle': _('Durée réelle de la sortie'),
@@ -16,3 +16,6 @@ class ExcursionForm(ModelForm):
             'meteo': _('Météo'),
             'Difficulte': _('Difficultée ressentie'),
         }
+        widgets = {
+        'date': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
+    }
