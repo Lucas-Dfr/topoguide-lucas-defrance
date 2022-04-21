@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.template import loader
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 from .forms import NewSortieForm, UpdateSortieForm
 
@@ -67,6 +68,12 @@ def modif_sortie(request, sortie_id):
     """
     # Fist get data from the database
     sortie = Sortie.objects.get(pk=sortie_id)
+    
+    # The user logged-in can only edit his own excursions
+    ref_user = sortie.utilisateur
+    if ref_user != request.user:
+        messages.error(request, ('Oups, vous ne pouvez modifier que vos propres sorties'))
+        return redirect('itineraires:sorties_liste', itineraire_id = sortie.itineraire.id)
     
     if request.method == 'GET':
         form = UpdateSortieForm(instance=sortie)
