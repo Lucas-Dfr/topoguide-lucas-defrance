@@ -4,7 +4,7 @@ from django.template import loader
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
-from .forms import SortieForm
+from .forms import NewSortieForm, UpdateSortieForm
 
 from .models import Itineraire, Sortie
 
@@ -34,7 +34,7 @@ def nouvelle_sortie(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
-        form = SortieForm(request.POST)
+        form = NewSortieForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
@@ -46,7 +46,7 @@ def nouvelle_sortie(request):
 
     # if a GET (or any other method) we'll create a blank form
     else:
-        form = SortieForm()
+        form = NewSortieForm()
 
     return render(request, 'itineraires/nouvelle_sortie.html', {'form': form})
 
@@ -69,10 +69,10 @@ def modif_sortie(request, sortie_id):
     sortie = Sortie.objects.get(pk=sortie_id)
     
     if request.method == 'GET':
-        form = SortieForm(instance=sortie)
+        form = UpdateSortieForm(instance=sortie)
         
     elif request.method == 'POST':
-        form = SortieForm(request.POST, instance=sortie)
+        form = UpdateSortieForm(request.POST, instance=sortie)
         if form.is_valid():
             form.save()
             sortie_iti = form.cleaned_data['itineraire']
