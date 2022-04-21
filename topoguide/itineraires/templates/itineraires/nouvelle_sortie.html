@@ -11,8 +11,8 @@
 <form action="{% url 'itineraires:sortie_new' %} " method="POST" class="form">
     {% csrf_token %}
     {% bootstrap_form form %}
-        <button type="submit" class="btn btn-primary">Add</button>
-        <a href="{% url 'itineraires:itineraires_liste' %}" class="btn btn-primary">Cancel</a>
+        <button type="submit" class="btn btn-success">Add</button>
+        <a href="{% url 'itineraires:itineraires_liste' %}" class="btn btn-success">Cancel</a>
 </form>
 
 {% endblock content%}

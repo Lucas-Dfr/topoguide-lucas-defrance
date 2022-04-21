@@ -2,7 +2,7 @@ from django.forms import ModelForm
 from itineraires.models import Sortie, Itineraire
 from django import forms
 
-class ExcursionForm(ModelForm):
+class SortieForm(ModelForm):
     class Meta:
         model = Sortie
         fields = ['itineraire', 'date', 'duree_reelle', 'nb_personnes', 'experience', 'meteo', 'difficulte']

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %} 
+
+{% block title %}Create New Excursion{% endblock title%}
+
+{% block content %}
+
+<form action="{% url 'itineraires:sortie_update' form.instance.id %}" method="post" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+      <button type="submit" class="btn btn-success">Update</button>
+      <a href="{% url 'itineraires:itineraires_liste' %}" class="btn btn-success">Cancel</a>
+</form>
+
+{% endblock content %}
