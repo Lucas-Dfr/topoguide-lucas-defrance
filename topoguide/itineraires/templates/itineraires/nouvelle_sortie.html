@@ -8,7 +8,7 @@
 <h1>Nouvelle sortie<h1>
 
 
-<form action="{% url 'itineraires:sortie_new' %} " method="post" class="form">
+<form action="{% url 'itineraires:sortie_new' %} " method="POST" class="form">
     {% csrf_token %}
     {% bootstrap_form form %}
         <button type="submit" class="btn btn-primary">Add</button>

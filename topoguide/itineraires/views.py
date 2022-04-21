@@ -4,8 +4,9 @@ from django.template import loader
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
+
 import itineraires
-from .form import ExcursionForm
+from .forms import ExcursionForm
 
 from .models import Itineraire, Sortie
 
@@ -30,6 +31,12 @@ def detail_sortie(request,sortie_id):
 
 @login_required()
 def nouvelle_sortie(request):
+    
+    # Get the name of the authenticaded user
+    username = None
+    if request.user.is_authenticated:
+        username = request.user.username
+        
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -37,6 +44,7 @@ def nouvelle_sortie(request):
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
+            form.cleaned_data['utilisateur'] = username
             form.save()
             # redirect to a new URL:
             return redirect('itineraires:sorties_liste')
