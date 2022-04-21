@@ -26,6 +26,7 @@
         <div class="container-fluid">
             
             <a class="navbar-brand text-white" href="{% url 'itineraires:itineraires_liste' %}">
+                <img src="{% static 'images/hiking.png' %}" width="40" height="40" class="d-inline-block" alt="">
                 Topoguide
             </a>
             <button onclick="document.location='{% url 'logout' %}'" type="button" class="btn btn-outline-light">Log out</button>
@@ -33,8 +34,6 @@
       </nav>
 
         {% block content %}{% endblock %}
-
-        <img src="{% static 'images/hiking.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
 
 </body>
 </html>
