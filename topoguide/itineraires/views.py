@@ -1,5 +1,3 @@
-from multiprocessing import context
-from django.http import HttpResponseRedirect
 from django.template import loader
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
@@ -11,26 +9,56 @@ from .models import Itineraire, Sortie
 
 @login_required()
 def liste_itineraires(request):
+    """
+    Get the list of itineraries available on the webb site and some of their details
+    :param request: The incoming request
+    """
+    
     itineraries_list = Itineraire.objects.order_by("nom")
     context = {'itineraries_list' : itineraries_list }
     return render(request, 'itineraires/liste_itineraires.html', context)
 
+
 @login_required()
 def liste_sorties(request,itineraire_id):
+    """
+    Get the list of excursion corresponding to the specified itinerary
+    :param request: The incoming request
+    :param itineraire_id: the itinerary's ID
+    """
+
     iti = Itineraire.objects.get(pk=itineraire_id)
     exursions_list = Sortie.objects.filter(itineraire = iti)
     context = {'excursions_list' : exursions_list, 'iti' : iti}
     return render(request,'itineraires/sorties.html',context)
 
+
 @login_required()
 def detail_sortie(request,sortie_id):
+    """
+    Get details about the specified excursion
+    :param request: The incoming request
+    :param sortie_id: The excursion's ID
+    """
     sortie = Sortie.objects.get(pk=sortie_id)
     context = {'sortie' : sortie}
     return render(request,'itineraires/detail_sortie.html',context)
 
+
 @login_required()
 def nouvelle_sortie(request):
+    """
+    Create a new excursion based on user input in form
     
+    Args:
+        request: the incoming request, GET or POST
+        
+    Returns:
+        - a page with an empty form if it was a GET request,
+        - a page with an empty form if it was a POST request
+          with invalid data,
+        - or the list of excursions if it was a POST with valid data
+    """
         
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
@@ -50,6 +78,7 @@ def nouvelle_sortie(request):
         form = NewSortieForm()
 
     return render(request, 'itineraires/nouvelle_sortie.html', {'form': form})
+
 
 @login_required()
 def modif_sortie(request, sortie_id):
@@ -75,15 +104,16 @@ def modif_sortie(request, sortie_id):
         messages.error(request, ('Oups, vous ne pouvez modifier que vos propres sorties'))
         return redirect('itineraires:sorties_liste', itineraire_id = sortie.itineraire.id)
     
+    # If it is a GET request we return a pre-filled form
     if request.method == 'GET':
         form = UpdateSortieForm(instance=sortie)
         
     elif request.method == 'POST':
         form = UpdateSortieForm(request.POST, instance=sortie)
+        # check whether it's valid:
         if form.is_valid():
             form.save()
-            sortie_iti = form.cleaned_data['itineraire']
-            return redirect('itineraires:sorties_liste', itineraire_id = sortie_iti.id)
+            return redirect('itineraires:sorties_liste', itineraire_id = sortie.itineraire.id)
         
     return render(request,'itineraires/modif_sortie.html', {'form': form})
     
