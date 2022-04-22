@@ -27,7 +27,6 @@ class Itineraire(models.Model):
     
     def __str__(self):
         return self.nom
-
 class Sortie(models.Model):
     """
     An excursion has only a single user and a single itinerary
