@@ -3,6 +3,9 @@ from itineraires.models import Sortie, Itineraire
 from django import forms
 
 class NewSortieForm(ModelForm):
+    """
+    Form made to create a new excursion
+    """
     class Meta:
         model = Sortie
         fields = ['itineraire', 'date', 'duree_reelle', 'nb_personnes', 'experience', 'meteo', 'difficulte']
@@ -20,7 +23,10 @@ class NewSortieForm(ModelForm):
     }
 
 class UpdateSortieForm(ModelForm):
-    # A user cannot change the itinerary corresponding to his excursion so the field "itinerary" has been removed
+    """
+    Same form as above but the field "itinerary" has been removed since a user 
+    cannot change the itinerary corresponding to his excursion
+    """
     class Meta:
         model = Sortie
         fields = ['date', 'duree_reelle', 'nb_personnes', 'experience', 'meteo', 'difficulte']

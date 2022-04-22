@@ -5,15 +5,15 @@
 
 {% block content %}
 
-<h1>Nouvelle sortie</h1>
+    <h1>Nouvelle sortie</h1>
 
 
-<form action="{% url 'itineraires:sortie_new' %} " method="POST" class="form">
-    {% csrf_token %}
-    {% bootstrap_form form %}
-        <button type="submit" class="btn btn-success">Add</button>
-        <a href="{% url 'itineraires:itineraires_liste' %}" class="btn btn-danger">Cancel</a>
-</form>
+    <form action="{% url 'itineraires:sortie_new' %} " method="POST" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+            <button type="submit" class="btn btn-success">Add</button>
+            <a href="{% url 'itineraires:itineraires_liste' %}" class="btn btn-danger">Cancel</a>
+    </form>
 
 {% endblock content%}
 

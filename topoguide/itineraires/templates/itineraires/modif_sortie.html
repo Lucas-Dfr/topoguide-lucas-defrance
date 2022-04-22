@@ -5,11 +5,11 @@
 
 {% block content %}
 
-<form action="{% url 'itineraires:sortie_update' form.instance.id %}" method="post" class="form">
-    {% csrf_token %}
-    {% bootstrap_form form %}
-      <button type="submit" class="btn btn-success">Update</button>
-      <a href="{% url 'itineraires:itineraires_liste' %}" class="btn btn-danger">Cancel</a>
-</form>
+  <form action="{% url 'itineraires:sortie_update' form.instance.id %}" method="post" class="form">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+        <button type="submit" class="btn btn-success">Update</button>
+        <a href="{% url 'itineraires:itineraires_liste' %}" class="btn btn-danger">Cancel</a>
+  </form>
 
 {% endblock content %}

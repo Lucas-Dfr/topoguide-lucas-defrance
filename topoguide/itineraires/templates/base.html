@@ -15,13 +15,9 @@
     <title>{% block title %}Topoguide{% endblock %}</title>
 </head>
 <style>
-
 </style>
 
 <body>
-    {# <h1 class="p-2 mb-2 bg-success text-white display-5" >Topoguide</h1> #}
-    {# <button onclick="document.location='{% url 'logout' %}'" type="button" class="btn btn-outline-danger">Log out</button> #}
-
     <nav class="navbar navbar-success bg-success">
         <div class="container-fluid">
             
@@ -33,7 +29,7 @@
         </div>
       </nav>
 
-        {% block content %}{% endblock %}
+    {% block content %}{% endblock %}
 
 </body>
 </html>

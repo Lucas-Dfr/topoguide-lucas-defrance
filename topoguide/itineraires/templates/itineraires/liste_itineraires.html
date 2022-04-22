@@ -5,9 +5,9 @@
 
 {% block content %}
 
-<h1>Itinéraires</h1>
+  <h1>Itinéraires</h1>
 
-<table class="table">
+  <table class="table">
     <thead>
       <tr>
         <th scope="col">Nom</th>
@@ -22,19 +22,19 @@
       </tr>
     </thead>
     <tbody>
-    {% for itinerary in itineraries_list %}
-      <tr>
-        <th scope="row"><a class="link-success" href="{% url 'itineraires:sorties_liste' itinerary.id %}">{{ itinerary.nom }}</a></th>
-        <td>{{ itinerary.duree }}</td>
-        <td>{{ itinerary.difficulte }}/5</td>
-        <td>{{ itinerary.p_dep }}</td>
-        <td>{{ itinerary.alt_dep }}m</td>
-        <td>{{ itinerary.altitude_min }}m</td>
-        <td>{{ itinerary.altitude_max }}m</td>
-        <td>{{ itinerary.denivele_pos }}m</td>
-        <td>{{ itinerary.denivele_neg }}m</td>
-      </tr>
-    {% endfor %}
+      {% for itinerary in itineraries_list %}
+        <tr>
+          <th scope="row"><a class="link-success" href="{% url 'itineraires:sorties_liste' itinerary.id %}">{{ itinerary.nom }}</a></th>
+          <td>{{ itinerary.duree }}</td>
+          <td>{{ itinerary.difficulte }}/5</td>
+          <td>{{ itinerary.p_dep }}</td>
+          <td>{{ itinerary.alt_dep }}m</td>
+          <td>{{ itinerary.altitude_min }}m</td>
+          <td>{{ itinerary.altitude_max }}m</td>
+          <td>{{ itinerary.denivele_pos }}m</td>
+          <td>{{ itinerary.denivele_neg }}m</td>
+        </tr>
+      {% endfor %}
 
     </tbody>
   </table>

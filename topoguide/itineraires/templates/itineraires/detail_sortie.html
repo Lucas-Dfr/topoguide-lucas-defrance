@@ -5,12 +5,12 @@
 
 {% block content %}
 
-<h1><a class="link-success" href="{% url 'itineraires:sorties_liste' sortie.itineraire.id %}">{{ sortie.itineraire.nom }}</a> - Sortie de {{ sortie.utilisateur }}</h1>
+    <h1><a class="link-success" href="{% url 'itineraires:sorties_liste' sortie.itineraire.id %}">{{ sortie.itineraire.nom }}</a> - Sortie de {{ sortie.utilisateur }}</h1>
 
-<p>Date : {{ sortie.date }}</p>
-<p>Durée réelle : {{ sortie.duree_reelle }}</p>
-<p>Nombre de participants : {{ sortie.nb_personnes }}</p>
-<p>Météo : {{ sortie.meteo }}</p>
-<p>Difficulté ressentie : {{ sortie.difficulte }}/5</p>
+    <p>Date : {{ sortie.date }}</p>
+    <p>Durée réelle : {{ sortie.duree_reelle }}</p>
+    <p>Nombre de participants : {{ sortie.nb_personnes }}</p>
+    <p>Météo : {{ sortie.meteo }}</p>
+    <p>Difficulté ressentie : {{ sortie.difficulte }}/5</p>
 
 {% endblock content %}
