@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from itineraires.models import Sortie, Itineraire
+from itineraires.models import Sortie
 from django import forms
 
 class NewSortieForm(ModelForm):
