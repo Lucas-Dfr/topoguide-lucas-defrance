@@ -1,16 +1,14 @@
-from django.template import loader
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from .forms import NewSortieForm, UpdateSortieForm
-
 from .models import Itineraire, Sortie
 
 @login_required()
 def liste_itineraires(request):
     """
-    Get the list of itineraries available on the webb site and some of their details
+    Get the list of itineraries available on the website and some of their details
     :param request: The incoming request
     """
     

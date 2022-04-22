@@ -2,6 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Itineraire(models.Model):
+    """
+    A hiking itinerary can have several excursions
+    """
     
     CHOIX_DIFFICULTE = [
         (1,'1 - Très facile'),
@@ -26,6 +29,9 @@ class Itineraire(models.Model):
         return self.nom
 
 class Sortie(models.Model):
+    """
+    An excursion has only a single user and a single itinerary
+    """
     
     CHOIX_EXPERIENCE = [
         ('Tous débutants','Tous débutants'),
