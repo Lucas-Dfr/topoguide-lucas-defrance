@@ -124,7 +124,8 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+# When login out, the user will be redirect towards the login page
+# When login in, the user will be redirected towards the page of his choice
 LOGOUT_REDIRECT_URL = 'http://127.0.0.1:8000/accounts/login/'
 LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/'
  
